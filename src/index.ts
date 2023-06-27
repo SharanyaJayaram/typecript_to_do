@@ -54,10 +54,13 @@ function renderTasks() {
         deleteButton.innerText = "Delete";
         deleteButton.classList.add("button-delete");
         deleteButton.addEventListener("click", () => {
-            const index = tasks.findIndex(t => t.id === task.id);
-            if (index !== -1) {
-                tasks.splice(index, 1);
-                renderTasks();
+            let index = -1;
+            for (let i = 0; i < tasks.length; i++) {
+
+                if (tasks[i].id === task.id) {
+                    index = i;
+                    break;
+                }
             }
         });
 
